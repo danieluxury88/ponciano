@@ -41,4 +41,35 @@
   </div>
 </section>
 
+<section class="section wrap">
+  <div class="intro">
+    <div class="eyebrow">Vida parroquial</div>
+    <h2>Calendario</h2>
+    <p class="muted">Fechas litúrgicas destacadas y la colecta mensual de Cáritas, de septiembre a diciembre de 2026.</p>
+  </div>
+
+  <div class="calendar" id="calendar" data-start="{{ calendarStart }}" data-end="{{ calendarEnd }}">
+    <div class="calendar-head">
+      <button type="button" class="calendar-nav" id="calendar-prev" aria-label="Mes anterior">‹</button>
+      <div class="calendar-title" id="calendar-title"></div>
+      <button type="button" class="calendar-nav" id="calendar-next" aria-label="Mes siguiente">›</button>
+    </div>
+    <div class="calendar-weekdays">
+      <span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span>
+    </div>
+    <div class="calendar-grid" id="calendar-grid"></div>
+    <div class="calendar-legend">
+      <span class="legend-item"><span class="legend-dot"></span>Fecha litúrgica</span>
+      <span class="legend-item"><span class="legend-dot legend-dot--caritas"></span>Cáritas</span>
+    </div>
+  </div>
+
+  <div class="detail calendar-detail" aria-live="polite">
+    <strong id="calendar-detail-title">Selecciona un día marcado</strong>
+    <div id="calendar-detail-text" class="muted">Los días con un punto tienen una fecha litúrgica o la colecta de Cáritas. Tócalos para ver el detalle.</div>
+  </div>
+
+  <script type="application/json" id="calendar-data">{{ calendarEvents|json_encode|raw }}</script>
+</section>
+
 {% endblock %}

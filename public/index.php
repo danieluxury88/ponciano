@@ -21,10 +21,57 @@ $icons = [
     'resurreccion' => $icon('<path d="M10.3 3H13.7V9.3H20V12.7H13.7V21H10.3V12.7H4V9.3H10.3Z" fill="currentColor"/>'),
 ];
 
-Flight::route('/', function () use ($twig) {
+$buildCalendarEvents = function (): array {
+    $start = new DateTime('2026-09-01');
+    $end = new DateTime('2026-12-31');
+
+    $events = [];
+
+    $caritasText = 'Primer domingo del mes: trae alimentos no perecederos o artículos de higiene para quienes más lo necesitan.';
+    $cursor = new DateTime($start->format('Y-m-01'));
+    while ($cursor <= $end) {
+        $firstSunday = clone $cursor;
+        $offset = (7 - (int) $cursor->format('N')) % 7;
+        $firstSunday->modify("+{$offset} days");
+        $events[$firstSunday->format('Y-m-d')][] = [
+            'type' => 'caritas',
+            'title' => 'Colecta de Cáritas',
+            'text' => $caritasText,
+        ];
+        $cursor->modify('first day of next month');
+    }
+
+    $liturgicalDates = [
+        '2026-09-14' => ['title' => 'Exaltación de la Santa Cruz', 'text' => 'Fiesta que celebra el triunfo de la Cruz de Cristo.'],
+        '2026-09-29' => ['title' => 'Santos Arcángeles Miguel, Gabriel y Rafael', 'text' => 'Fiesta de los tres arcángeles mencionados en la Escritura.'],
+        '2026-10-04' => ['title' => 'San Francisco de Asís', 'text' => 'Memoria del santo de Asís, testigo de pobreza y fraternidad.'],
+        '2026-11-01' => ['title' => 'Todos los Santos', 'text' => 'Celebramos a todos los santos, conocidos y anónimos, que ya gozan de Dios.'],
+        '2026-11-02' => ['title' => 'Fieles Difuntos', 'text' => 'Día de oración por todos los fieles difuntos.'],
+        '2026-11-22' => ['title' => 'Jesucristo, Rey del Universo', 'text' => 'Solemnidad que cierra el año litúrgico.'],
+        '2026-11-29' => ['title' => 'I Domingo de Adviento', 'text' => 'Comienza el Adviento, tiempo de espera y preparación.'],
+        '2026-12-06' => ['title' => 'II Domingo de Adviento', 'text' => 'Seguimos preparando el camino del Señor.'],
+        '2026-12-08' => ['title' => 'Inmaculada Concepción', 'text' => 'Solemnidad de la Inmaculada Concepción de María.'],
+        '2026-12-12' => ['title' => 'Virgen de Guadalupe', 'text' => 'Memoria de Nuestra Señora de Guadalupe.'],
+        '2026-12-13' => ['title' => 'III Domingo de Adviento', 'text' => 'Domingo de la alegría (Gaudete).'],
+        '2026-12-20' => ['title' => 'IV Domingo de Adviento', 'text' => 'Último domingo antes de la Navidad.'],
+        '2026-12-25' => ['title' => 'Natividad del Señor', 'text' => '¡Feliz Navidad! Celebramos el nacimiento de Jesús.'],
+    ];
+    foreach ($liturgicalDates as $date => $event) {
+        $events[$date][] = array_merge(['type' => 'liturgico'], $event);
+    }
+
+    ksort($events);
+
+    return $events;
+};
+
+Flight::route('/', function () use ($twig, $buildCalendarEvents) {
     echo $twig->render('landing.html.twig', [
         'title' => 'Grupo de Biblia · Cartas a los Corintios',
         'nav' => 'inicio',
+        'calendarStart' => '2026-09',
+        'calendarEnd' => '2026-12',
+        'calendarEvents' => $buildCalendarEvents(),
         'letters' => [
             [
                 'available' => true,

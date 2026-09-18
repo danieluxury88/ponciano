@@ -60,13 +60,78 @@ Flight::route('/1-corintios', function () use ($twig, $icons) {
             ['icon' => $icons['resurreccion'], 'title' => 'Resurrección', 'text' => 'Nuestra esperanza no termina en la muerte: Cristo ha resucitado y nuestra vida está llamada a la plenitud en Él.'],
         ],
         'messages' => [
-            ['text' => 'El amor nunca pasa.', 'ref' => '1 Corintios 13,8'],
-            ['text' => 'Tus dones son también un regalo para los demás.', 'ref' => '1 Corintios 12,7'],
-            ['text' => 'Somos muchos miembros, pero un solo cuerpo.', 'ref' => '1 Corintios 12,20'],
-            ['text' => 'Busca no solo tu propio bien, sino también el bien del otro.', 'ref' => '1 Corintios 10,24'],
-            ['text' => 'Mantente firme y crece siempre en la obra del Señor.', 'ref' => '1 Corintios 15,58'],
-            ['text' => 'Cristo ha resucitado: nuestra esperanza está viva.', 'ref' => '1 Corintios 15,20'],
-            ['text' => 'Que todo lo que hagas nazca del amor.', 'ref' => '1 Corintios 16,14'],
+            [
+                'text' => 'Que no haya divisiones entre ustedes.',
+                'ref' => '1 Corintios 1,10',
+            ],
+            [
+                'text' => 'La sabiduría de este mundo es necedad ante Dios.',
+                'ref' => '1 Corintios 3,19',
+            ],
+            [
+                'text' => 'Ustedes son templo de Dios y el Espíritu de Dios habita en ustedes.',
+                'ref' => '1 Corintios 3,16',
+            ],
+            [
+                'text' => 'Hagan todo para gloria de Dios.',
+                'ref' => '1 Corintios 10,31',
+            ],
+            [
+                'text' => 'Que nadie busque su propio interés, sino el bien de los demás.',
+                'ref' => '1 Corintios 10,24',
+            ],
+            [
+                'text' => 'Cada vez que comen este pan y beben esta copa, anuncian la muerte del Señor.',
+                'ref' => '1 Corintios 11,26',
+            ],
+            [
+                'text' => 'Hay diversidad de dones, pero el Espíritu es el mismo.',
+                'ref' => '1 Corintios 12,4',
+            ],
+            [
+                'text' => 'A cada uno se le da la manifestación del Espíritu para el bien común.',
+                'ref' => '1 Corintios 12,7',
+            ],
+            [
+                'text' => 'Somos muchos miembros, pero un solo cuerpo.',
+                'ref' => '1 Corintios 12,20',
+            ],
+            [
+                'text' => 'El amor es paciente, es bondadoso.',
+                'ref' => '1 Corintios 13,4',
+            ],
+            [
+                'text' => 'El amor nunca pasa.',
+                'ref' => '1 Corintios 13,8',
+            ],
+            [
+                'text' => 'Permanecen la fe, la esperanza y el amor; pero el mayor de ellos es el amor.',
+                'ref' => '1 Corintios 13,13',
+            ],
+            [
+                'text' => 'Busquen el amor.',
+                'ref' => '1 Corintios 14,1',
+            ],
+            [
+                'text' => 'Cristo ha resucitado de entre los muertos.',
+                'ref' => '1 Corintios 15,20',
+            ],
+            [
+                'text' => 'Gracias sean dadas a Dios, que nos da la victoria por nuestro Señor Jesucristo.',
+                'ref' => '1 Corintios 15,57',
+            ],
+            [
+                'text' => 'Manténganse firmes y progresen siempre en la obra del Señor.',
+                'ref' => '1 Corintios 15,58',
+            ],
+            [
+                'text' => 'Manténganse firmes en la fe; sean valientes y fuertes.',
+                'ref' => '1 Corintios 16,13',
+            ],
+            [
+                'text' => 'Todo lo que hagan, háganlo con amor.',
+                'ref' => '1 Corintios 16,14',
+            ],
         ],
     ]);
 });

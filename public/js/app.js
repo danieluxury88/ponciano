@@ -15,6 +15,7 @@ const messages = messagesData ? JSON.parse(messagesData.textContent) : [];
 
 let current = 0;
 const message = document.getElementById('message');
+const messageRef = document.getElementById('message-ref');
 const newMessageButton = document.getElementById('new-message');
 if (newMessageButton) {
   newMessageButton.addEventListener('click', () => {
@@ -23,6 +24,9 @@ if (newMessageButton) {
       next = Math.floor(Math.random() * messages.length);
     }
     current = next;
-    message.textContent = messages[current];
+    message.textContent = messages[current].text;
+    if (messageRef) {
+      messageRef.textContent = messages[current].ref;
+    }
   });
 }

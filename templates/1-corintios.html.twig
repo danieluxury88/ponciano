@@ -57,7 +57,8 @@
 <section class="section wrap">
   <div class="message-card">
     <div class="eyebrow on-dark">Un mensaje para llevar</div>
-    <div id="message" aria-live="polite">{{ messages[0] }}</div>
+    <div id="message" aria-live="polite">{{ messages[0].text }}</div>
+    <span id="message-ref" class="message-ref">{{ messages[0].ref }}</span>
     <button id="new-message" class="action" type="button">Descubrir otro mensaje</button>
   </div>
   <script type="application/json" id="messages-data">{{ messages|json_encode|raw }}</script>

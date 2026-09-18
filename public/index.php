@@ -60,13 +60,13 @@ Flight::route('/1-corintios', function () use ($twig, $icons) {
             ['icon' => $icons['resurreccion'], 'title' => 'Resurrección', 'text' => 'Nuestra esperanza no termina en la muerte: Cristo ha resucitado y nuestra vida está llamada a la plenitud en Él.'],
         ],
         'messages' => [
-            'El amor nunca pasa.',
-            'Tus dones son también un regalo para los demás.',
-            'Somos muchos miembros, pero un solo cuerpo.',
-            'Busca no solo tu propio bien, sino también el bien del otro.',
-            'Mantente firme y crece siempre en la obra del Señor.',
-            'Cristo ha resucitado: nuestra esperanza está viva.',
-            'Que todo lo que hagas nazca del amor.',
+            ['text' => 'El amor nunca pasa.', 'ref' => '1 Corintios 13,8'],
+            ['text' => 'Tus dones son también un regalo para los demás.', 'ref' => '1 Corintios 12,7'],
+            ['text' => 'Somos muchos miembros, pero un solo cuerpo.', 'ref' => '1 Corintios 12,20'],
+            ['text' => 'Busca no solo tu propio bien, sino también el bien del otro.', 'ref' => '1 Corintios 10,24'],
+            ['text' => 'Mantente firme y crece siempre en la obra del Señor.', 'ref' => '1 Corintios 15,58'],
+            ['text' => 'Cristo ha resucitado: nuestra esperanza está viva.', 'ref' => '1 Corintios 15,20'],
+            ['text' => 'Que todo lo que hagas nazca del amor.', 'ref' => '1 Corintios 16,14'],
         ],
     ]);
 });

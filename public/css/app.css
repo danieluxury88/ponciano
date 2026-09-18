@@ -335,6 +335,15 @@ h2{font-size:clamp(1.9rem,4.6vw,2.7rem);line-height:1.1;font-weight:600}
   margin:16px auto 0;
   max-width:680px;
 }
+.message-ref{
+  display:block;
+  margin-top:14px;
+  font-weight:700;
+  font-size:.78rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.8);
+}
 .action{
   display:inline-flex;
   align-items:center;

@@ -17,16 +17,28 @@ let current = 0;
 const message = document.getElementById('message');
 const messageRef = document.getElementById('message-ref');
 const newMessageButton = document.getElementById('new-message');
-if (newMessageButton) {
-  newMessageButton.addEventListener('click', () => {
-    let next = current;
-    while (messages.length > 1 && next === current) {
-      next = Math.floor(Math.random() * messages.length);
-    }
-    current = next;
-    message.textContent = messages[current].text;
-    if (messageRef) {
-      messageRef.textContent = messages[current].ref;
-    }
-  });
+
+const showNextMessage = () => {
+  let next = current;
+  while (messages.length > 1 && next === current) {
+    next = Math.floor(Math.random() * messages.length);
+  }
+  current = next;
+  message.textContent = messages[current].text;
+  if (messageRef) {
+    messageRef.textContent = messages[current].ref;
+  }
+};
+
+if (message && messages.length > 1) {
+  const MESSAGE_INTERVAL_MS = 10000;
+  let rotation = setInterval(showNextMessage, MESSAGE_INTERVAL_MS);
+
+  if (newMessageButton) {
+    newMessageButton.addEventListener('click', () => {
+      showNextMessage();
+      clearInterval(rotation);
+      rotation = setInterval(showNextMessage, MESSAGE_INTERVAL_MS);
+    });
+  }
 }

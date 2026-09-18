@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<section class="hero wrap">
+  <div class="hero-inner">
+    <div class="eyebrow">Grupo de Biblia · Primera Carta a los Corintios</div>
+    <div class="hero-grid">
+      <div>
+        <p class="hero-kicker serif">Una carta termina. La Palabra continúa.</p>
+        <h1>Todo lo que hagan,<br><span>háganlo con amor.</span></h1>
+        <div class="verse-ref">{{ verse }}</div>
+      </div>
+      <div class="note">
+        <div style="font-size:2rem">✦</div>
+        <p>Gracias por cada pregunta, cada reflexión, cada momento de escucha y cada experiencia compartida durante este camino.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap two-col">
+  <div>
+    <div class="eyebrow">Corinto · siglo I</div>
+    <h2>Una comunidad real.</h2>
+    <p class="muted">Pablo escribió a cristianos con dones, diferencias, preguntas, dificultades y esperanza. No a una comunidad perfecta, sino a una comunidad llamada a crecer en Cristo.</p>
+  </div>
+  <div class="lead-card">
+    <div class="eyebrow">Nuestra comunidad · hoy</div>
+    <p>Siglos después, nosotros también nos reunimos alrededor de la misma Palabra.</p>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="intro">
+    <div class="eyebrow">Lo que nos deja 1 Corintios</div>
+    <h2>Seis ideas para llevar con nosotros</h2>
+    <p class="muted">Toca cada tema para recordar una de las grandes invitaciones de la carta.</p>
+  </div>
+
+  <div class="topics">
+    {% for topic in topics %}
+    <button class="topic" type="button" aria-pressed="{{ loop.first ? 'true' : 'false' }}" data-title="{{ topic.title }}" data-text="{{ topic.text }}"><span class="icon">{{ topic.icon }}</span><span class="name">{{ topic.title }}</span></button>
+    {% endfor %}
+  </div>
+
+  <div class="detail" aria-live="polite">
+    <strong id="topic-title">{{ topics[0].title }}</strong>
+    <div id="topic-text" class="muted" style="margin-top:6px">{{ topics[0].text }}</div>
+  </div>
+</section>
+
+<section class="section wrap center">
+  <div style="font-size:2rem">✦</div>
+  <div class="bigline">Terminamos una carta,<br>pero no terminamos el camino.</div>
+  <p class="muted" style="max-width:680px;margin:18px auto 0">Que lo aprendido se transforme en una manera más profunda de amar a Dios, servir a los demás y construir comunidad.</p>
+</section>
+
+<section class="section wrap">
+  <div class="message-card">
+    <div class="eyebrow">Un mensaje para llevar</div>
+    <div id="message" aria-live="polite">{{ messages[0] }}</div>
+    <button id="new-message" class="action" type="button">Descubrir otro mensaje</button>
+  </div>
+  <script type="application/json" id="messages-data">{{ messages|json_encode|raw }}</script>
+</section>
+
+<footer class="wrap">
+  <div class="thanks">Gracias por caminar juntos en la Palabra.</div>
+  <p class="muted">Por cada encuentro, cada pregunta, cada testimonio y cada momento compartido. Que el Señor haga fecundo lo que hemos recibido.</p>
+  <div class="eyebrow" style="margin-top:24px">Primera Carta a los Corintios · Grupo de Biblia</div>
+</footer>
+
+{% endblock %}

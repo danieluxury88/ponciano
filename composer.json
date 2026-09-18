@@ -1,0 +1,6 @@
+{
+    "require": {
+        "flightphp/core": "^3.19",
+        "twig/twig": "^3.29"
+    }
+}

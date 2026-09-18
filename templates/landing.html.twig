@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<section class="hero wrap">
+  <div class="hero-inner">
+    <div class="eyebrow">Grupo de Biblia</div>
+    <div class="hero-grid">
+      <div>
+        <p class="hero-kicker serif">Cartas que siguen hablando hoy.</p>
+        <h1>Cartas a los <span>Corintios</span></h1>
+        <p class="muted" style="margin-top:16px">Un recorrido por las cartas de Pablo a la comunidad de Corinto.</p>
+      </div>
+      <div class="note">
+        <div style="font-size:2rem">✦</div>
+        <p>Elige una carta para comenzar el recorrido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="intro">
+    <div class="eyebrow">Elige una carta</div>
+    <h2>Nuestros estudios</h2>
+  </div>
+
+  <div class="letters">
+    {% for letter in letters %}
+      {% if letter.available %}
+      <a class="letter-card" href="{{ letter.url }}">
+        <span class="eyebrow">{{ letter.eyebrow }}</span>
+        <span class="letter-title">{{ letter.title }}</span>
+        <span class="muted">{{ letter.description }}</span>
+      </a>
+      {% else %}
+      <div class="letter-card disabled">
+        <span class="eyebrow">{{ letter.eyebrow }}</span>
+        <span class="letter-title">{{ letter.title }}</span>
+        <span class="muted">{{ letter.description }}</span>
+        <span class="badge-soon">Próximamente</span>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

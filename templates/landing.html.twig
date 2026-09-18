@@ -1,23 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
+{% block description %}Parroquia Transfiguración del Señor — Grupo de Biblia. Un recorrido por las cartas de San Pablo a los Corintios.{% endblock %}
 
 {% block content %}
 
 <section class="hero wrap">
   <div class="hero-inner">
-    <div class="eyebrow">Grupo de Biblia</div>
-    <div class="hero-grid">
-      <div>
-        <p class="hero-kicker serif">Cartas que siguen hablando hoy.</p>
-        <h1>Cartas a los <span>Corintios</span></h1>
-        <p class="muted" style="margin-top:16px">Un recorrido por las cartas de Pablo a la comunidad de Corinto.</p>
-      </div>
-      <div class="note">
-        <div style="font-size:2rem">✦</div>
-        <p>Elige una carta para comenzar el recorrido.</p>
-      </div>
-    </div>
+    <div class="eyebrow on-dark">Grupo de Biblia</div>
+    <p class="hero-kicker">Cartas que siguen hablando hoy.</p>
+    <h1>Cartas a los <em>Corintios</em></h1>
+    <p class="hero-lede">Un recorrido pausado por las cartas de San Pablo a la comunidad de Corinto: preguntas, dones, amor y esperanza que todavía nos hablan.</p>
   </div>
 </section>
 
@@ -25,19 +18,20 @@
   <div class="intro">
     <div class="eyebrow">Elige una carta</div>
     <h2>Nuestros estudios</h2>
+    <p class="muted">Cada carta se vive como un pequeño recorrido, con temas para conversar en comunidad.</p>
   </div>
 
   <div class="letters">
     {% for letter in letters %}
       {% if letter.available %}
       <a class="letter-card" href="{{ letter.url }}">
-        <span class="eyebrow">{{ letter.eyebrow }}</span>
+        <span class="letter-numeral">{{ letter.numeral }}</span>
         <span class="letter-title">{{ letter.title }}</span>
         <span class="muted">{{ letter.description }}</span>
       </a>
       {% else %}
       <div class="letter-card disabled">
-        <span class="eyebrow">{{ letter.eyebrow }}</span>
+        <span class="letter-numeral">{{ letter.numeral }}</span>
         <span class="letter-title">{{ letter.title }}</span>
         <span class="muted">{{ letter.description }}</span>
         <span class="badge-soon">Próximamente</span>

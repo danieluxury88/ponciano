@@ -1,22 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
+{% block description %}Primera Carta a los Corintios — Grupo de Biblia, Parroquia Transfiguración del Señor.{% endblock %}
 
 {% block content %}
 
-<section class="hero wrap">
+<section class="hero center wrap">
   <div class="hero-inner">
-    <div class="eyebrow">Grupo de Biblia · Primera Carta a los Corintios</div>
-    <div class="hero-grid">
-      <div>
-        <p class="hero-kicker serif">Una carta termina. La Palabra continúa.</p>
-        <h1>Todo lo que hagan,<br><span>háganlo con amor.</span></h1>
-        <div class="verse-ref">{{ verse }}</div>
-      </div>
-      <div class="note">
-        <div style="font-size:2rem">✦</div>
-        <p>Gracias por cada pregunta, cada reflexión, cada momento de escucha y cada experiencia compartida durante este camino.</p>
-      </div>
+    <span class="hero-badge"><img src="/img/mark.png" alt="Parroquia Transfiguración del Señor"></span>
+    <div class="eyebrow on-dark">Grupo de Biblia · Primera Carta a los Corintios</div>
+    <p class="hero-verse">Todo lo que hagan,<br><em>háganlo con amor.</em></p>
+    <span class="hero-ref">{{ verse }}</span>
+    <div class="hero-note">
+      <p>Gracias por cada pregunta, cada reflexión, cada momento de escucha y cada experiencia compartida durante este camino.</p>
     </div>
   </div>
 </section>
@@ -42,7 +38,7 @@
 
   <div class="topics">
     {% for topic in topics %}
-    <button class="topic" type="button" aria-pressed="{{ loop.first ? 'true' : 'false' }}" data-title="{{ topic.title }}" data-text="{{ topic.text }}"><span class="icon">{{ topic.icon }}</span><span class="name">{{ topic.title }}</span></button>
+    <button class="topic" type="button" aria-pressed="{{ loop.first ? 'true' : 'false' }}" data-title="{{ topic.title }}" data-text="{{ topic.text }}">{{ topic.icon|raw }}<span class="name">{{ topic.title }}</span></button>
     {% endfor %}
   </div>
 
@@ -53,21 +49,21 @@
 </section>
 
 <section class="section wrap center">
-  <div style="font-size:2rem">✦</div>
+  <svg class="glyph" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z" fill="currentColor"/></svg>
   <div class="bigline">Terminamos una carta,<br>pero no terminamos el camino.</div>
   <p class="muted" style="max-width:680px;margin:18px auto 0">Que lo aprendido se transforme en una manera más profunda de amar a Dios, servir a los demás y construir comunidad.</p>
 </section>
 
 <section class="section wrap">
   <div class="message-card">
-    <div class="eyebrow">Un mensaje para llevar</div>
+    <div class="eyebrow on-dark">Un mensaje para llevar</div>
     <div id="message" aria-live="polite">{{ messages[0] }}</div>
     <button id="new-message" class="action" type="button">Descubrir otro mensaje</button>
   </div>
   <script type="application/json" id="messages-data">{{ messages|json_encode|raw }}</script>
 </section>
 
-<footer class="wrap">
+<footer class="page-footer wrap">
   <div class="thanks">Gracias por caminar juntos en la Palabra.</div>
   <p class="muted">Por cada encuentro, cada pregunta, cada testimonio y cada momento compartido. Que el Señor haga fecundo lo que hemos recibido.</p>
   <div class="eyebrow" style="margin-top:24px">Primera Carta a los Corintios · Grupo de Biblia</div>

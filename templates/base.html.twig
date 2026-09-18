@@ -3,16 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B4DB7">
+  <meta name="description" content="{% block description %}Parroquia Transfiguración del Señor — comunidad, fe y Palabra.{% endblock %}">
 
-  <title>{% block title %}Todo lo que hagan, háganlo con amor{% endblock %}</title>
+  <title>{% block title %}Parroquia Transfiguración del Señor{% endblock %}</title>
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/app.css">
 </head>
 
 <body>
-  <main>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="site-header-inner wrap">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/img/mark.png" alt="Parroquia Transfiguración del Señor">
+        <span class="brand-text">
+          <span class="brand-name">Transfiguración del Señor</span>
+          <span class="brand-sub">Parroquia</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Principal">
+        <a href="/" class="{{ nav == 'inicio' ? 'is-active' : '' }}">Inicio</a>
+        <a href="/1-corintios" class="{{ nav == '1-corintios' ? 'is-active' : '' }}"><span class="nav-full">1ª Corintios</span><span class="nav-short">1ª</span></a>
+        <a href="/2-corintios" class="{{ nav == '2-corintios' ? 'is-active' : '' }}"><span class="nav-full">2ª Corintios</span><span class="nav-short">2ª</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
     {% block content %}{% endblock %}
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer-inner">
+      <img class="site-footer-logo" src="/img/mark.png" alt="">
+      <p class="site-footer-name">Parroquia Transfiguración del Señor</p>
+      <p class="site-footer-muted">Grupo de Biblia</p>
+    </div>
+  </footer>
 
   <script src="/js/app.js"></script>
 </body>

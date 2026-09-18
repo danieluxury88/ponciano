@@ -15,11 +15,14 @@ const messages = messagesData ? JSON.parse(messagesData.textContent) : [];
 
 let current = 0;
 const message = document.getElementById('message');
-document.getElementById('new-message').addEventListener('click', () => {
-  let next = current;
-  while (messages.length > 1 && next === current) {
-    next = Math.floor(Math.random() * messages.length);
-  }
-  current = next;
-  message.textContent = messages[current];
-});
+const newMessageButton = document.getElementById('new-message');
+if (newMessageButton) {
+  newMessageButton.addEventListener('click', () => {
+    let next = current;
+    while (messages.length > 1 && next === current) {
+      next = Math.floor(Math.random() * messages.length);
+    }
+    current = next;
+    message.textContent = messages[current];
+  });
+}

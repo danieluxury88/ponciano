@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
+{% block description %}{{ eyebrow }} — Próximamente en la Parroquia Transfiguración del Señor.{% endblock %}
 
 {% block content %}
 
-<section class="hero wrap center">
+<section class="hero center wrap">
   <div class="hero-inner">
-    <div class="eyebrow">{{ eyebrow }}</div>
+    <svg class="soon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z" fill="currentColor"/></svg>
+    <div class="eyebrow on-dark">{{ eyebrow }}</div>
     <h1>{{ title }}</h1>
-    <div class="note" style="margin-top:24px">
-      <div style="font-size:2rem">✦</div>
+    <div class="hero-note">
       <p>{{ message }}</p>
     </div>
     <a class="action" href="/">Volver al inicio</a>
